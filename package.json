@@ -1,56 +1,44 @@
 {
-  "name": "body-parser",
-  "description": "Node.js body parsing middleware",
-  "version": "1.20.3",
-  "contributors": [
-    "Douglas Christopher Wilson <doug@somethingdoug.com>",
-    "Jonathan Ong <me@jongleberry.com> (http://jongleberry.com)"
-  ],
+  "name": "content-disposition",
+  "description": "Create and parse Content-Disposition header",
+  "version": "0.5.4",
+  "author": "Douglas Christopher Wilson <doug@somethingdoug.com>",
   "license": "MIT",
-  "repository": "expressjs/body-parser",
+  "keywords": [
+    "content-disposition",
+    "http",
+    "rfc6266",
+    "res"
+  ],
+  "repository": "jshttp/content-disposition",
   "dependencies": {
-    "bytes": "3.1.2",
-    "content-type": "~1.0.5",
-    "debug": "2.6.9",
-    "depd": "2.0.0",
-    "destroy": "1.2.0",
-    "http-errors": "2.0.0",
-    "iconv-lite": "0.4.24",
-    "on-finished": "2.4.1",
-    "qs": "6.13.0",
-    "raw-body": "2.5.2",
-    "type-is": "~1.6.18",
-    "unpipe": "1.0.0"
+    "safe-buffer": "5.2.1"
   },
   "devDependencies": {
-    "eslint": "8.34.0",
-    "eslint-config-standard": "14.1.1",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-markdown": "3.0.0",
+    "deep-equal": "1.0.1",
+    "eslint": "7.32.0",
+    "eslint-config-standard": "13.0.1",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-markdown": "2.2.1",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-promise": "5.2.0",
     "eslint-plugin-standard": "4.1.0",
-    "methods": "1.1.2",
-    "mocha": "10.2.0",
-    "nyc": "15.1.0",
-    "safe-buffer": "5.2.1",
-    "supertest": "6.3.3"
+    "istanbul": "0.4.5",
+    "mocha": "9.1.3"
   },
   "files": [
-    "lib/",
     "LICENSE",
     "HISTORY.md",
-    "SECURITY.md",
+    "README.md",
     "index.js"
   ],
   "engines": {
-    "node": ">= 0.8",
-    "npm": "1.2.8000 || >= 1.4.16"
+    "node": ">= 0.6"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha --require test/support/env --reporter spec --check-leaks --bail test/",
-    "test-ci": "nyc --reporter=lcov --reporter=text npm test",
-    "test-cov": "nyc --reporter=html --reporter=text npm test"
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/"
   }
 }
