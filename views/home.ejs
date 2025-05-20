@@ -1,0 +1,6 @@
+<h1>My Blog</h1>
+<a href="/compose">New Post</a>
+<% posts.forEach(post => { %>
+  <h2><a href="/posts/<%= post.title %>"><%= post.title %></a></h2>
+  <p><%= post.content.substring(0, 100) %>...</p>
+<% }); %>
